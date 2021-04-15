@@ -21,6 +21,9 @@ gem 'jbuilder', '~> 2.7'
 # Fetch data from GitHub API
 gem "github_api"
 
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
