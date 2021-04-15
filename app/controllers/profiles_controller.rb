@@ -1,13 +1,18 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   def index
-    @response = Profile.search(params[:search]).as_json
+    @query = Profile.search(params[:search]).as_json
+    if @query && @query.length > 0
 
-    @user = @response
-    @login = @response[0]['owner']['login']
-    @url = @response[0]['owner']['url']
-    @repos = @response.count  
+      @user = @query
+      @login = @query[0]['owner']['login']
+      @url = @query[0]['owner']['url']
+      @repos = @query.count 
+    elsif params[:search] != ""
+      @err = "User not found. Please check eventual typos."
+    else params[:search] = ""
+      @err = "You must type something to perform a search."
+    end
   end
 
   def show
@@ -17,6 +22,11 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    profile = Profile.new
+    profile.login = @login
+    profile.url = @url
+    profile.repos = @repos
+    profile.save
   end
 
   def destroy

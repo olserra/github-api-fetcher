@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container first-search">
   <div class="title"> 
-    <h3>GitHub Comparator</h3>
+    <h3>Search GitHub User</h3>
   </div>
 
   <div class="search-form">
@@ -18,10 +18,21 @@
     <% end %>
   </div>
 
-  <div class="display-info">
-    <p>👨🏻‍💻 Great. We found a user called: <strong><%= @login %></strong></p>
-    <p>📭 User url is: <strong><%= @url %></strong></p> 
-    <p>🗂 Number of repos: <strong><%= @repos %></strong></p> 
-  </div>
+  <% if !@login.nil? %>
+    <div class="display-info">
+      <p>🎉 &nbsp; Great. We found a user called: <strong><%= @login %></strong></p>
+      <p>🎯 &nbsp; User URL is: <strong><%= @url %></strong></p> 
+      <p>🗂 &nbsp; Number of repos: <strong><%= @repos %></strong></p> 
+    </div>
+
+    <%= form_tag(profiles_path, :method => "post", :class=>"form-inline my-2 my-lg-0") do %>
+        <span class="input-group-btn">
+          <%= submit_tag "Save", class: 'btn-danger btn-info' %>
+        </span>
+    <% end %>
+
+  <% else %>
+    <p><i><%= @err %></i></p>
+  <% end %>
 </div>
 

@@ -23,6 +23,7 @@ gem "github_api"
 
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'sqlite3'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root "profiles#index"
 
   get "/profiles", to: "profiles#index"
-  get "/search", :to => "profiles#index"
+  post "/profiles", to: "profiles#create"
+  get "/search", to: "profiles#index"
+  get "/comparator", :to => "profiles#comparator"
 end
