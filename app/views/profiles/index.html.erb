@@ -1,0 +1,18 @@
+<h1>GitHub Comparator</h1>
+
+<%= form_tag(search_path, 
+             :method => "get", 
+             :class=>"form-inline my-2 my-lg-0") do %>
+  <%= text_field_tag :search, 
+                      params[:search], 
+                      placeholder: "Search profiles", 
+                      class: "form-control mr-sm-2" %>
+
+    <span class="input-group-btn">
+      <%= submit_tag "Search", class: 'btn-sucess btn-info' %>
+    </span>
+<% end %>
+
+<p>👨🏻‍💻 Great. We found a user called: <strong><%= @login %></strong></p>
+<p>📭 User url is: <strong><%= @url %></strong></p> 
+<p>🗂 Number of repos: <strong><%= @repos %></strong></p> 
