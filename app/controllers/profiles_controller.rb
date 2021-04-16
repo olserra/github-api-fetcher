@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
 
   def index
+    @profiles = Profile.all
+      
     @query = Profile.search(params[:search]).as_json
     if @query && @query.length > 0
 
@@ -22,11 +24,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    profile = Profile.new
-    profile.login = @login
-    profile.url = @url
-    profile.repos = @repos
-    profile.save
+    @profile = Profile.create!(login: @login, url: @url, repos: @repos)
   end
 
   def destroy

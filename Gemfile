@@ -6,7 +6,7 @@ ruby '2.6.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -23,7 +23,6 @@ gem "github_api"
 
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'sqlite3'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

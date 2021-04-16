@@ -22,7 +22,7 @@
     <div class="display-info">
       <p>🎉 &nbsp; Great. We found a user called: <strong><%= @login %></strong></p>
       <p>🎯 &nbsp; User URL is: <strong><%= @url %></strong></p> 
-      <p>🗂 &nbsp; Number of repos: <strong><%= @repos %></strong></p> 
+      <p>🗂 &nbsp; Number of public repos: <strong><%= @repos %></strong></p> 
     </div>
 
     <%= form_tag(profiles_path, :method => "post", :class=>"form-inline my-2 my-lg-0") do %>
@@ -34,5 +34,24 @@
   <% else %>
     <p><i><%= @err %></i></p>
   <% end %>
+
+  <div class="table-users">
+        <table>
+          <tr>
+            <th>Login</th>
+            <th>URL</th>
+            <th>Repos</th>
+          </tr>
+        </table>
+      <% if !@profiles.nil? && @profiles.count > 0 %>
+        <% @profiles.each do |profile| %>
+        <tr>
+            <td><%= profile.login%></td>
+            <td><%= profile.url%></td>
+            <td><%= profile.repos%></td>
+          </tr>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 

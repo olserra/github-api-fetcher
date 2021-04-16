@@ -2,7 +2,8 @@ class Profile < ApplicationRecord
 
     def self.search(search)
         if !(search == "")
-            Github.repos.list user: search            
+            github = Github.new
+            github.repos.list user: search, per_page: 300
         else
             return false
         end
