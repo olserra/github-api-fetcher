@@ -1,8 +1,37 @@
 class ProfilesController < ApplicationController
 
   def index
+    if params[:search].present?
+      search
+    end
+  end
+
+  def create
+    @query = Profile.search(params[:search]).as_json
+    if @query && @query.length > 0
+
+      @user = @query
+      @login = @query[0]['owner']['login']
+      @url = @query[0]['owner']['url']
+      @repos = @query.count 
+    end
+    @profile = Profile.create!(login: @login, url: @url, repos: @repos)
+    raise
+  end
+
+  def show
     @profiles = Profile.all
-      
+  end
+
+  def new
+  end
+
+  def destroy
+  end
+
+  private
+
+  def search
     @query = Profile.search(params[:search]).as_json
     if @query && @query.length > 0
 
@@ -15,19 +44,6 @@ class ProfilesController < ApplicationController
     else params[:search] = ""
       @err = "You must type something to perform a search."
     end
-  end
-
-  def show
-  end
-
-  def new
-  end
-
-  def create
-    @profile = Profile.create!(login: @login, url: @url, repos: @repos)
-  end
-
-  def destroy
   end
 
 end
