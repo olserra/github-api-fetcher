@@ -1,4 +1,5 @@
 class Profile < ApplicationRecord
+    has_many :comparisons
 
     def self.search(search)
         if !(search == "")
@@ -8,4 +9,5 @@ class Profile < ApplicationRecord
             return false
         end
     end
+
 end

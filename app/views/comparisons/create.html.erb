@@ -1,0 +1,43 @@
+<div class="container" >
+    <div class="title"> 
+        <h3>Who has more repos?</h3>
+    </div>
+    <div class="table-users-compare">
+        <div class="first-user">
+            <table style="width:100%; margin-bottom: 25px">
+                <tr>
+                    <th>Login</th>
+                    <th>Repos</th>
+                </tr>
+                <tr>
+                    <td><%= @login_1 %></td>
+                    <td><%= @repos_1 %></td>
+                </tr>
+            </table>
+        </div>
+        <div class="second-user">
+            <table style="width:100%; margin-bottom: 25px">
+                <tr>
+                    <th>Login</th>
+                    <th>Repos</th>
+                </tr>
+                <tr>
+                    <td><%= @login_2 %></td>
+                    <td><%= @repos_2 %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <%= link_to '<span type="link">Home</span>'.html_safe, profiles_path %>
+
+    <div class="final-result">
+        <% if @winner != 0 %>
+            <p> And the winner is:</p>
+            <h3><%= @winner %></h3>
+            <h1>🎉</h1>
+        <% end %>
+    </div>
+
+</div>

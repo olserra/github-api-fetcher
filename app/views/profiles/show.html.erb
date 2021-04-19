@@ -1,24 +1,33 @@
 <div class="container" >
     <div class="title"> 
-        <h3>Search GitHub User</h3>
+        <h3>List of stored profiles</h3>
     </div>
     <div class="table-users">
-        <table>
+        <table style="width:100%; margin-bottom: 25px">
             <tr>
-            <th>Login</th>
-            <th>URL</th>
-            <th>Repos</th>
+                <th>Login</th>
+                <th>URL</th>
+                <th>Repos</th>
             </tr>
+        
+            <% if !@profiles.nil? && @profiles.count > 0 %>
+                <%= form_for Comparison.new do |f| %>
+                    <% @profiles.each do |profile| %>
+                        <tr>
+                            <td><%= profile.login %></td>
+                            <td><%= profile.url %></td>
+                            <td><%= profile.repos %></td>
+                            <td><%= check_box_tag "comparison[profile_ids][]", profile.id %></td>
+                        </tr>
+                    <% end %>
         </table>
-        <% if !@profiles.nil? && @profiles.count > 0 %>
-        <% @profiles.each do |profile| %>
-        <tr>
-            <td><%= profile.login%></td>
-            <td><%= profile.url%></td>
-            <td><%= profile.repos%></td>
-            </tr>
-        <% end %>
-        <% end %>
+                <%= f.button "Compare", type: :submit, class: 'btn-danger btn-info'%>
+                <% end %>
+            <% end %>
+
     </div>
+
+    <%= link_to '<span type="link">Home</span>'.html_safe, profiles_path %>
+
 </div>
 

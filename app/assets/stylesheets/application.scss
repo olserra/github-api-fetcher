@@ -1,5 +1,11 @@
 @import "bootstrap";
 
+body {
+    background-image: url(space.jpeg);
+    background-size: cover;
+    color: white;
+}
+
 .btn-info {
     width: 100px;
     height: 38px;
@@ -27,4 +33,49 @@
 
 .table-users {
     padding-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.table-users-compare {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+td {
+    text-align: center;
+}
+
+th {
+    text-align: center;
+    color: #CC1C4C
+}
+
+table, th, td {
+    border: 1px solid #1a3c6a;
+    border-radius: 15px; 
+    padding: 10px;
+}
+
+a {
+    color: yellow; 
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.first-user {
+    padding-right: 30px;
+}
+
+.final-result {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+
+    p {
+        margin: 0;
+    }
 }

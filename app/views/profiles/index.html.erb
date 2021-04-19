@@ -1,6 +1,6 @@
 <div class="container first-search">
   <div class="title"> 
-    <h3>Search GitHub User</h3>
+    <h3> 👾👾👾 GitHub Repo Game 👾👾👾</h3>
   </div>
 
   <div class="search-form">
@@ -25,7 +25,10 @@
       <p>🗂 &nbsp; Number of public repos: <strong><%= @repos %></strong></p> 
     </div>
 
-    <%= form_tag(profiles_path, :method => "get", :class=>"form-inline my-2 my-lg-0") do %>
+    <%= form_for @profile, class: "form-inline my-2 my-lg-0" do |f| %>
+      <%= f.hidden_field :login %>
+      <%= f.hidden_field :url %>
+      <%= f.hidden_field :repos %>
         <span class="input-group-btn">
           <%= submit_tag "Save", class: 'btn-danger btn-info' %>
         </span>
@@ -34,6 +37,8 @@
   <% else %>
     <p><i><%= @err %></i></p>
   <% end %>
+
+  <%= link_to '<span type="link">Show profiles</span>'.html_safe, show_path %>
 
   
 </div>
