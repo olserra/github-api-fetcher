@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 body {
-    background-image: url(space.jpeg);
+    background-image: asset-url("space.jpeg");
     background-size: cover;
     color: white;
 }
